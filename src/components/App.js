@@ -1,7 +1,5 @@
-
 import React, { useState } from "react";
 import './../styles/App.css';
-import WeatherDisplay from "./WeatherDisplay";
 
 const App = () => {
   // Hardcoded weather data
@@ -10,12 +8,21 @@ const App = () => {
     conditions: "Sunny"
   });
 
+  // Conditional styling for temperature
+  const tempStyle = {
+    color: weather.temperature > 20 ? "red" : "blue"
+  };
+
   return (
     <div>
       {/* Do not remove the main div */}
-      <WeatherDisplay weather={weather} />
+      <p>
+        Temperature: <span style={tempStyle}>{weather.temperature}</span>
+      </p>
+      <p>Conditions: {weather.conditions}</p>
     </div>
   );
 };
 
 export default App;
+
